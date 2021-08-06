@@ -10,19 +10,43 @@ function computerPlay(){
     } else {return "Scissors"}
 }
 
+let playerScore = 0;
+
+
 // Function SingleRound of Rock Paper Scissors
 function playRound(playerSelection, computerSelection){
 // takes in playerSelection and computerSelection
     if(playerSelection == computerSelection){
-        return "It's a tie! " + computerSelection + " equals " + playerSelection
+        return `It's a tie! ${computerSelection} equals ${playerSelection}`
     } if(playerSelection === "Rock" && computerSelection === "Scissors" ||  playerSelection === "Scissors" && computerSelection === "Paper" || playerSelection === "Paper" && computerSelection === "Rock"){
+        playerScore++;
         return `You Win! ${playerSelection} beats ${computerSelection}`
     } else{
+        playerScore--;
         return `You Lose! ${computerSelection} beats ${playerSelection}`
     }
 // returns a string that declares the winner
 }
 
-const playerSelection = "Rock";
-computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection))
+// Create a function called game
+function game(){
+    for(let i = 0; i<5; i++){
+        let playerAnswer = prompt("What do you play?");
+        if(playerAnswer === "Rock" || playerAnswer === "Paper" || playerAnswer === "Scissors"){
+            console.log(playRound(playerAnswer, computerPlay()));
+            
+        }else{
+            console.log("invalid input")
+            i--;
+        }
+                
+    }
+    if(playerScore > 0){
+        console.log("You Win!")
+    }
+    if(playerScore === 0 ){
+        console.log("It's a Tie!")
+    }
+    if(playerScore < 0) {console.log("You Lose!")}
+}
+game();
