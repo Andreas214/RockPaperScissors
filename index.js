@@ -15,15 +15,17 @@ let playerScore = 0;
 
 // Function SingleRound of Rock Paper Scissors
 function playRound(playerSelection, computerSelection){
+    playerSelection = playerSelection.toLowerCase()
+    playersAnswer = playerSelection[0].toUpperCase() + playerSelection.substring(1)
 // takes in playerSelection and computerSelection
     if(playerSelection == computerSelection){
-        return `It's a tie! ${computerSelection} equals ${playerSelection}`
-    } if(playerSelection === "Rock" && computerSelection === "Scissors" ||  playerSelection === "Scissors" && computerSelection === "Paper" || playerSelection === "Paper" && computerSelection === "Rock"){
+        return `It's a tie! ${computerSelection} equals ${playersAnswer}`
+    } if(playersAnswer === "Rock" && computerSelection === "Scissors" ||  playersAnswer === "Scissors" && computerSelection === "Paper" || playersAnswer === "Paper" && computerSelection === "Rock"){
         playerScore++;
-        return `You Win! ${playerSelection.toLowerCase()} beats ${computerSelection}`
+        return `You Win! ${playersAnswer} beats ${computerSelection}`
     } else{
         playerScore--;
-        return `You Lose! ${computerSelection} beats ${playerSelection.toLowerCase()}`
+        return `You Lose! ${computerSelection} beats ${playersAnswer}`
     }
 // returns a string that declares the winner
 }
@@ -31,7 +33,7 @@ function playRound(playerSelection, computerSelection){
 // Create a function called game
 function game(){
     for(let i = 0; i<5; i++){
-        let playerAnswer = prompt("What do you play?").toUpperCase();
+        let playerAnswer = prompt("Choose Rock, Paper or Scissors").toUpperCase();
         if(playerAnswer === "ROCK" || playerAnswer === "PAPER" || playerAnswer === "SCISSORS"){
             console.log(playRound(playerAnswer, computerPlay()));
             
