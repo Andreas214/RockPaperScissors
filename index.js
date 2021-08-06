@@ -31,8 +31,8 @@ function playRound(playerSelection, computerSelection){
 // Create a function called game
 function game(){
     for(let i = 0; i<5; i++){
-        let playerAnswer = prompt("What do you play?");
-        if(playerAnswer === "Rock" || playerAnswer === "Paper" || playerAnswer === "Scissors"){
+        let playerAnswer = prompt("What do you play?").toUpperCase();
+        if(playerAnswer === "ROCK" || playerAnswer === "PAPER" || playerAnswer === "SCISSORS"){
             console.log(playRound(playerAnswer, computerPlay()));
             
         }else{
