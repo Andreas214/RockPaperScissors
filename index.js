@@ -20,10 +20,10 @@ function playRound(playerSelection, computerSelection){
         return `It's a tie! ${computerSelection} equals ${playerSelection}`
     } if(playerSelection === "Rock" && computerSelection === "Scissors" ||  playerSelection === "Scissors" && computerSelection === "Paper" || playerSelection === "Paper" && computerSelection === "Rock"){
         playerScore++;
-        return `You Win! ${playerSelection} beats ${computerSelection}`
+        return `You Win! ${playerSelection.toLowerCase()} beats ${computerSelection}`
     } else{
         playerScore--;
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        return `You Lose! ${computerSelection} beats ${playerSelection.toLowerCase()}`
     }
 // returns a string that declares the winner
 }
