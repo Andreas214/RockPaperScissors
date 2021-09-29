@@ -10,8 +10,17 @@
 </head>
 
 <body>
-
-
+    <div><button id="rock" onclick="playRound('rock', computerPlay())">Rock</button></div>
+    <div><button id="paper" onclick="playRound('paper', computerPlay())">Paper</button></div>
+    <div><button id="scissors" onclick="playRound('scissors', computerPlay())">Scissors</button></div>
+    <div>Result:</div>
+    <div id="result"></div>
+    <div>
+        <h4>Playerscore</h4>
+        <span id="playerScore"></span>
+        <h4>Computerscore</h4>
+        <span id="computerScore"></span>
+    </div>
 </body>
 
 <script src="index.js"></script>

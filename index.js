@@ -9,29 +9,40 @@ function computerPlay(){
         return "Paper"
     } else {return "Scissors"}
 }
-
 let playerScore = 0;
-
+let computerScore = 0;
+let player = document.querySelector("#playerScore")
+let computer = document.querySelector("#computerScore")
 
 // Function SingleRound of Rock Paper Scissors
 function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toLowerCase()
     playersAnswer = playerSelection[0].toUpperCase() + playerSelection.substring(1)
+    let result = document.querySelector("#result")
+
+
 // takes in playerSelection and computerSelection
-    if(playerSelection == computerSelection){
-        return `It's a tie! ${computerSelection} equals ${playersAnswer}`
-    } if(playersAnswer === "Rock" && computerSelection === "Scissors" ||  playersAnswer === "Scissors" && computerSelection === "Paper" || playersAnswer === "Paper" && computerSelection === "Rock"){
-        playerScore++;
-        return `You Win! ${playersAnswer} beats ${computerSelection}`
-    } else{
+    if(playersAnswer === "Scissors" && computerSelection === "Rock" ||  playersAnswer === "Paper" && computerSelection === "Scissors" || playersAnswer === "Rock" && computerSelection === "Paper"){
+        result.textContent = `You Lose! ${computerSelection} beats ${playersAnswer}`
         playerScore--;
-        return `You Lose! ${computerSelection} beats ${playersAnswer}`
+        computerScore++;
+    }else if(playersAnswer === "Rock" && computerSelection === "Scissors" ||  playersAnswer === "Scissors" && computerSelection === "Paper" || playersAnswer === "Paper" && computerSelection === "Rock"){
+        playerScore++;
+        computerScore--;
+        result.textContent = `You Win! ${playersAnswer} beats ${computerSelection}`
+    } else{
+        result.textContent = `It's a tie! ${computerSelection} equals ${playersAnswer}`
     }
+    player.textContent = playerScore;
+    computer.textContent = computerScore;
+
 // returns a string that declares the winner
+
 }
 
+
 // Create a function called game
-function game(){
+/* function game(){
     for(let i = 0; i<5; i++){
         let playerAnswer = prompt("Choose Rock, Paper or Scissors").toUpperCase();
         if(playerAnswer === "ROCK" || playerAnswer === "PAPER" || playerAnswer === "SCISSORS"){
@@ -51,4 +62,6 @@ function game(){
     }
     if(playerScore < 0) {console.log("You Lose!")}
 }
-game();
+game(); */
+
+  
